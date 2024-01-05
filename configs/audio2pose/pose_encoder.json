@@ -1,0 +1,27 @@
+{
+  "pipeline": "v2",
+  "tag": "pose_encoder",
+  "segment_tag": "",
+  "learning_rate": 2.0,
+  "warmup_steps": 100000,
+  "model_path": "checkpoints/audio2pose/",
+  "num_epochs": 50000,
+  "batch_size": 128,
+  "log_step": 20,
+  "save_epoch":50,
+  "transformer_config":{
+    "in_dim": 6,
+    "hidden_size": 256,
+    "num_hidden_layers": 12,
+    "num_attention_heads": 8,
+    "intermediate_size": 384,
+    "quant_sequence_length": 4,
+    "sequence_length": 32,
+    "quant_factor": 3
+  },
+  "VQuantizer": {
+    "n_embed": 200,
+    "zquant_dim": 256
+  },
+  "style_class":256
+}
