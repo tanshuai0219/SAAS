@@ -1,6 +1,9 @@
 # Say Anything with Any Style
 
-### Paper ID: 611
+This repository provides the official PyTorch implementation for the following paper:<br>
+**Say Anything with Any Style**<br>
+[Shuai Tan](https://scholar.google.com.hk/citations?user=9KjKwDwAAAAJ&hl=zh-CN), et al.<br>
+In AAAI, 2024.<br>
 
 ![visualization](demo/teaser.jpg)
 
@@ -21,8 +24,6 @@ pip install -r requirements.txt
 ```
 
 ## Inference
-
-- The size of pre-trained model has already exceeds the 50M limited in the [Submission Guidelines for Supplementary Material](https://aaai.org/aaai-conference/aaai-24-supplementary-material/). Moreover, in order not to compromise the anonymity, the download link of the model is not currently available.
 
 - Run the demo in audio-driven setting:
     ```bash
