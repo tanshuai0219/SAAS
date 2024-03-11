@@ -37,84 +37,10 @@ pip install -r requirements.txt
     ```
   The result will be stored in save_path.
 
-## Evaluation
-- We adopt the codes released by [vico_challenge_baseline](https://github.com/dc3ea9f/vico_challenge_baseline/tree/main/evaluations) to assess the results.
+  img_path used should be first cropped using scripts [crop_image.py](data_preprocess/crop_image.py)
 
-## Data Preprocess:
-- Crop videos in training datasets:
-    ```bash
-    python data_preprocess/crop_video.py
-    ```
-- Split video: Since the video in HDTF is too long, we split both the video and the corresponding audio into 5s segments:
-    ```bash
-    python data_preprocess/split_HDTF_video.py
-    ```
-
-    ```bash
-    python data_preprocess/split_HDTF_audio.py
-    ```
-- Extract 3DMM parameters from cropped videos using [Deep3DFaceReconstruction](https://github.com/microsoft/Deep3DFaceReconstruction):
-    ```bash
-    python data_preprocess/extract_3DMM.py
-    ```
-- Extract mel feature from audio:
-    ```bash
-    python data_preprocess/get_mel.py
-    ```
-- We save the audio mel features and 3DMM parameters in a lmdb file:
-    ```bash
-    python data_preprocess/prepare_lmdb.py
-    ```
-- Extract mfcc feature from audio for audio2pose module:
-    ```bash
-    python data_preprocess/get_mfcc.py
-    ```
-- Extract landmarks from cropped videos for facial discriminator:
-    ```bash
-    python data_preprocess/extract_lmdk.py
-    ```
-- Extract lankmarks of left/right eye, mouth by:
-    ```bash
-    python data_preprocess/parse_landmark.py
-    ```
-- We save the video frames and 3DMM parameters in a lmdb file:
-    ```bash
-    python data_preprocess/prepare_PIRender_lmdb.py
-    ```
-## Train
-- Train Style Extraction module (style codebook):
-    ```bash
-    python style_extraction/train_test/train.py
-    ```
-- Train Audio-driven setting:
-    ```bash
-    python -m torch.distributed.launch --nproc_per_node=4 --master_port 12344 audio_driven/train_test/train.py
-    ```
-- Train Video-driven setting:
-    ```bash
-    python -m torch.distributed.launch --nproc_per_node=4 --master_port 12344 video_driven/train.py
-    ```
-- Train pose_encoder module (pose codebook):
-    ```bash
-    python audio2pose/train_test/train_vq.py
-    ```
-- Train audio2pose module:
-    ```bash
-    python audio2pose/train_test/train_vq_decoder.py
-    ```
-- Train FaceRender with facial discriminator module:
-Please clone [PIRender](https://github.com/RenYurui/PIRender) first, and move the files in 'FaceRender_with_facial_discriminator' to the corresponding locations of cloned PIPender. Then, run:
-    ```bash
-    python -m torch.distributed.launch --nproc_per_node=4 --master_port 12344 train_dis.py
-    ```
-## Dataset
-- We use the following dataset for training and testing.
-1) **MEAD**. [download link](https://wywu.github.io/projects/MEAD/MEAD.html).
-2) **HDTF**. [download link](https://github.com/MRzzm/HDTF).
-- Part of test data presented in demo video .
-1) **CREMA-D**. [download link](https://github.com/CheyneyComputerScience/CREMA-D).
-1) **VoxCeleb2**. [download link](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/vox2.html).
-
+- Download [checkpoints](https://drive.google.com/file/d/1bZYQZF1Ftm_BDWvq899KY2MolSXktHYl/view?usp=drive_link) for video-driven setting and put them into ./checkpoints.
+- We are currently suggesting to combine [SadTalker](https://github.com/OpenTalker/SadTalker) and our video-driven setting to support audio-driven setting
 ## Acknowledgement
 Some code are borrowed from following projects:
 * [Learning2Listen](https://github.com/evonneng/learning2listen)
@@ -126,3 +52,16 @@ Some code are borrowed from following projects:
 * [FOMM video preprocessing](https://github.com/AliaksandrSiarohin/video-preprocessing)
 
 Thanks for their contributions!
+
+* We would like to thank [Xinya Ji](https://scholar.google.com.hk/citations?user=sy_WtmcAAAAJ&hl=zh-CN&oi=ao), [Yifeng Ma](https://scholar.google.com.hk/citations?user=0SxgRqoAAAAJ&hl=zh-CN&oi=ao) and Zhiyao Sun for their generous help.
+
+## Citation
+If you find this codebase useful for your research, please use the following entry.
+```BibTeX
+@inproceedings{tan2023saas,
+  title={Say Anything with Any Style},
+  author={Tan, Shuai and Ji, Bin and Pan, Ye},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  year={2024}
+}
+```
