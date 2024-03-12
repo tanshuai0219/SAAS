@@ -40,7 +40,7 @@ pip install -r requirements.txt
   img_path used should be first cropped using scripts [crop_image.py](data_preprocess/crop_image.py)
 
 - Download [checkpoints](https://drive.google.com/file/d/1bZYQZF1Ftm_BDWvq899KY2MolSXktHYl/view?usp=drive_link) for video-driven setting and put them into ./checkpoints.
-- Our audio encoder can be viewe as the combination of [SadTalker' Audio encoder](https://github.com/OpenTalker/SadTalker) and our video-encoder. You can download the checkpoint of [SadTalker' Audio encoder](https://github.com/OpenTalker/SadTalker) and our video-encoder to support audio-driven setting.
+- Our audio encoder can be viewed as the combination of [SadTalker' Audio encoder](https://github.com/OpenTalker/SadTalker) and our video-encoder. You can download the checkpoint of [SadTalker' Audio encoder](https://github.com/OpenTalker/SadTalker) and our video-encoder to support audio-driven setting.
 
 ## Acknowledgement
 Some code are borrowed from following projects:
@@ -59,7 +59,7 @@ Thanks for their contributions!
 ## Citation
 If you find this codebase useful for your research, please use the following entry.
 ```BibTeX
-@inproceedings{tan2023saas,
+@inproceedings{tan2024saas,
   title={Say Anything with Any Style},
   author={Tan, Shuai and Ji, Bin and Pan, Ye},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
