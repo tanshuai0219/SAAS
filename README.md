@@ -1,7 +1,7 @@
 # Say Anything with Any Style
 
 This repository provides the official PyTorch implementation for the following paper:<br>
-**Say Anything with Any Style**<br>
+**[Say Anything with Any Style](https://arxiv.org/abs/2403.06363)**<br>
 [Shuai Tan](https://scholar.google.com.hk/citations?user=9KjKwDwAAAAJ&hl=zh-CN), et al.<br>
 In AAAI, 2024.<br>
 
