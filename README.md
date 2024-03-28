@@ -59,10 +59,13 @@ Thanks for their contributions!
 ## Citation
 If you find this codebase useful for your research, please use the following entry.
 ```BibTeX
-@inproceedings{tan2024saas,
+@inproceedings{tan2024say,
   title={Say Anything with Any Style},
-  author={Tan, Shuai and Ji, Bin and Pan, Ye},
+  author={Tan, Shuai and Ji, Bin and Ding, Yu and Pan, Ye},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={38},
+  number={5},
+  pages={5088--5096},
   year={2024}
 }
 ```
